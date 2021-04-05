@@ -10,12 +10,30 @@
 </head>
 
 <body>
-    <header>
-        <button class="cart-button" type="button">Корзина</button>
-    </header>
-    <main>
-        <div class="goods-list"></div>
-    </main>
+    <div id="app">
+        <header>
+            <input type="text" class="goods-search" v-model:value="searchLine" />
+            <button class="search-button" type="button" v-on:click="filterGoods(searchLine)">Искать</button>
+            <button class="cart-button" type="button" v-on:click="openCart">Корзина</button>
+        </header>
+        <main>
+            <div class="goods-list" v-if="filteredGoods.length>0">
+                <div class="goods-item" v-for="good in filteredGoods">
+                    <h3>{{ good.product_name }}</h3>
+                    <p>{{ good.price }}</p>
+                    <button class="card-button">В корзину</button>
+                </div>
+            </div>
+            <div class="goods-list" v-else>
+                <h2>Нет данных!</h2>
+            </div>
+        </main>
+        <article class="cart-modal" v-if="isVisibleCart">
+            <div class="cart-close" v-on:click="closeCart"><span>&#x2716;</span></div>
+            <div class="cart-list"></div>
+        </article>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <script src="script/script.js"></script>
 </body>
 
