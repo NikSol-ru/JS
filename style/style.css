@@ -1,5 +1,6 @@
-body {
-    margin: 25px;
+
+#app {
+    position: relative;
 }
 
 header {
@@ -45,12 +46,6 @@ header {
     box-shadow: 0 0 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.5);
 }
 
-.goods-item img {
-    margin: 5px;
-    width: 200px;
-    height: 200px;
-}
-
 .goods-item h3 {
     margin: 5px auto;
     font-size: 25px;
@@ -69,4 +64,34 @@ header {
 .card-button {
     margin: 10px auto;
     cursor: pointer;
+}
+
+.cart-modal {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background-color: #ccc;     
+}
+
+.cart-close {
+    text-align: end;
+}
+
+.cart-close span {
+    font-size: 30px;
+    margin: 10px;
+    border: 1px solid black;
+    cursor: pointer;    
+}
+
+
+.cart-list {
+    margin: 40px auto;
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    border: 2px solid black;      
+    opacity: .9;
 }
